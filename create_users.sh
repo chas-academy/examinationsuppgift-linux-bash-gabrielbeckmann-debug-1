@@ -16,15 +16,15 @@ fi
 #Här börjar själva for loopen med lista som lagrar användare som läggs in som argument. Listan skapar ett home directory för varje användare och skapar sedan nödvändiga mappar. Därefter ändras ägarskapet av mappen till användaren och rwx rättigheter sätts efteråt.
 for user in "$@"; do
   useradd -m $user
-  mkdir /home/$user/documents
-  mkdir /home/$user/downloads
-  mkdir /home/$user/work
-  chown $user /home/$user/documents
-  chown $user /home/$user/downloads
-  chown $user /home/$user/work
-  chmod 700 /home/$user/documents
-  chmod 700 /home/$user/downloads
-  chmod 700 /home/$user/work
+  mkdir /home/$user/Documents
+  mkdir /home/$user/Downloads
+  mkdir /home/$user/Work
+  chown $user /home/$user/Documents
+  chown $user /home/$user/Downloads
+  chown $user /home/$user/Work
+  chmod 700 /home/$user/Documents
+  chmod 700 /home/$user/Downloads
+  chmod 700 /home/$user/Work
   echo "Välkommen" $user > /home/$user/welcome.txt
   echo "Här är en lista på alla andra användare i systemet" >> /home/$user/welcome.txt
   compgen -u | grep -v "$user" >> /home/$user/welcome.txt
